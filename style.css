@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+
+    background: #eef2f7;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LOGIN PAGE */
+
+.login-body{
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.login-container{
+    width: 380px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    text-align: center;
+}
+
+.login-container h1{
+    color: #333;
+
+    margin-bottom: 10px;
+}
+
+.subtitle{
+    color: #6b7280;
+
+    margin-bottom: 25px;
+
+    font-size: 14px;
+}
+
+.login-container input{
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.login-container input:focus{
+    border-color: #6366f1;
+}
+
+.login-container button{
+    width: 100%;
+
+    padding: 14px;
+
+    background: #6366f1;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.login-container button:hover{
+    background: #4f46e5;
+}
+
+/* DASHBOARD */
+
+.container{
+    width: 450px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.top-bar h1{
+    font-size: 28px;
+
+    color: #1f2937;
+}
+
+.logout-btn{
+    background: #ef4444;
+
+    padding: 10px 15px;
+
+    border: none;
+
+    color: white;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.logout-btn:hover{
+    background: #dc2626;
+}
+
+.task-input{
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.task-input input{
+    flex: 1;
+
+    padding: 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.task-input button{
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    background: #f8fafc;
+
+    padding: 14px 16px;
+
+    margin-top: 14px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e2e8f0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completed{
+    text-decoration: line-through;
+
+    color: gray;
+}
+
+.delete-btn{
+    background: #ef4444;
+
+    border: none;
+
+    color: white;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
