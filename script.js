@@ -1,49 +1,83 @@
-/* LOGIN FUNCTION */
+/* =========================
+   LOGIN FUNCTION
+========================= */
 
-function login(){
+function login() {
 
     let username = document.getElementById("username").value;
 
     let password = document.getElementById("password").value;
 
-    if(username === "admin" && password === "1234"){
+    if (username === "admin" && password === "1234") {
 
+        // Save login status
         localStorage.setItem("loggedIn", "true");
 
+        // Redirect to dashboard
         window.location.href = "dashboard.html";
 
-    }
-    else{
+    } else {
+
         alert("Invalid Username or Password");
     }
 }
 
-/* LOGOUT FUNCTION */
+/* =========================
+   LOGOUT FUNCTION
+========================= */
 
-function logout(){
+function logout() {
 
+    // Remove login status
     localStorage.removeItem("loggedIn");
 
+    // Redirect to login page
     window.location.href = "index.html";
 }
 
-/* TASK MANAGER */
+/* =========================
+   CHECK LOGIN STATUS
+========================= */
+
+// If user is not logged in,
+// redirect back to login page
+
+if (
+    window.location.pathname.includes("dashboard.html")
+) {
+
+    if (localStorage.getItem("loggedIn") !== "true") {
+
+        window.location.href = "index.html";
+    }
+}
+
+/* =========================
+   TASK MANAGER
+========================= */
 
 let taskList = document.getElementById("taskList");
 
-if(taskList){
+// Load tasks only if taskList exists
+if (taskList) {
 
     loadTasks();
 }
 
-function addTask(){
+/* =========================
+   ADD TASK
+========================= */
+
+function addTask() {
 
     let taskInput = document.getElementById("taskInput");
 
     let taskText = taskInput.value.trim();
 
-    if(taskText === ""){
+    if (taskText === "") {
+
         alert("Please enter a task");
+
         return;
     }
 
@@ -54,7 +88,11 @@ function addTask(){
     taskInput.value = "";
 }
 
-function createTask(taskText){
+/* =========================
+   CREATE TASK
+========================= */
+
+function createTask(taskText) {
 
     let li = document.createElement("li");
 
@@ -72,12 +110,20 @@ function createTask(taskText){
     taskList.appendChild(li);
 }
 
-function toggleTask(task){
+/* =========================
+   TOGGLE TASK
+========================= */
+
+function toggleTask(task) {
 
     task.classList.toggle("completed");
 }
 
-function deleteTask(button){
+/* =========================
+   DELETE TASK
+========================= */
+
+function deleteTask(button) {
 
     let li = button.parentElement;
 
@@ -86,31 +132,55 @@ function deleteTask(button){
     updateLocalStorage();
 }
 
-function saveTask(task){
+/* =========================
+   SAVE TASK
+========================= */
 
-    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+function saveTask(task) {
+
+    let tasks =
+        JSON.parse(localStorage.getItem("tasks")) || [];
 
     tasks.push(task);
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks)
+    );
 }
 
-function loadTasks(){
+/* =========================
+   LOAD TASKS
+========================= */
 
-    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+function loadTasks() {
+
+    let tasks =
+        JSON.parse(localStorage.getItem("tasks")) || [];
 
     tasks.forEach(task => {
+
         createTask(task);
     });
 }
 
-function updateLocalStorage(){
+/* =========================
+   UPDATE LOCAL STORAGE
+========================= */
+
+function updateLocalStorage() {
 
     let tasks = [];
 
-    document.querySelectorAll("li span").forEach(task => {
-        tasks.push(task.textContent);
-    });
+    document
+        .querySelectorAll("#taskList li span")
+        .forEach(task => {
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+            tasks.push(task.textContent.trim());
+        });
+
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks)
+    );
 }
